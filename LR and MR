@@ -1,0 +1,14 @@
+data <- read.csv("diabetes.csv")
+
+# Linear Regression
+model1 <- lm(Outcome ~ Age, data=data)
+summary(model1)
+
+plot(data$Age, data$Outcome,
+     main="Linear Regression: Age vs Diabetes Outcome",
+     xlab="Age", ylab="Outcome", pch=19)
+abline(model1)
+
+# Multiple Regression
+model2 <- lm(Outcome ~ Age + Glucose + BMI + BloodPressure, data=data)
+summary(model2)
